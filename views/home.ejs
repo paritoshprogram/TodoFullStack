@@ -1,0 +1,72 @@
+<html>
+    <head>
+      <title>
+          <%= title %>
+      </title> 
+      <link rel="stylesheet" href= "./style.css">
+    </head>
+    <body>
+        <div class="heading"><h1>TODO APP</h1></div>
+       
+        <div class="fill">
+            <form action="/create-todo" method="POST">
+            <div class="description">
+
+                <input type="text" name="description"placeholder="What do you need to do?" required></input>
+
+                
+            </div>
+            <div class="row2">
+                <div class="cat">
+                    <select name="category" required>
+
+                        <option>PERSONAL</option>
+                        <option>WORK</option>
+                        <option>SCHOOL</option>
+                        <option>CLEANING</option>
+                        <option>OTHER</option>
+
+                    </select>
+                </div>
+                <div class="due">
+                    <input type="date" name="date" required>
+                </div>
+            </div>
+
+                
+
+            
+            
+            
+           
+        </div>
+        <div class="choices">
+          
+            <button type="submit" id="add">ADD</button></form>
+
+            <form action="/delete-todo" method="GET">
+        <button id="del" type="submit">DELETE</button>
+        </div>
+
+    
+        <div class="todo-cont">
+
+            <% for(let i of task) { %>
+                <div class="todo" id="todo1">
+                    <input type="checkbox" id ="check" name="<%= i._id %>" >
+                 <p >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description - <%= i.description %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Category - <%=  i.category %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date - <%=  i.date %></p>
+
+
+                </div>
+
+                
+                
+                
+                <% }%>
+            
+
+            </form>
+        </div>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>
